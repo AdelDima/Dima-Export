@@ -1,7 +1,8 @@
+## This plugin created with ChatGPT.
+
 # Export Content for WordPress
 
 Dima Export is a plugin that allows you to easily export all of your WordPress content, or export individuaål pages.
-This plugin created with ChatGPT.
 
 ## Features
 
