@@ -1,0 +1,16 @@
+{
+  "name": "dima-export",
+  "version": "1.0.0",
+  "description": "Export all pages or page by page.",
+  "main": "index.js",
+  "repository": "git@github.com:AdelDima/Dima-Export.git",
+  "author": "Adel Tahri <adel4tahri@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "vite": "^4.0.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "zip": "zip -r dima-export.zip * -x \"*.git*\" -x \"*node_modules*\" -x \"yarn-error.log\" -x \"package.json\" -x \"yarn.lock\""
+  }
+}
