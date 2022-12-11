@@ -24,15 +24,21 @@ add_action( 'admin_menu', 'export_page_by_id_register_settings_page' );
 
 // Display the plugin settings page
 function dima_export_page_settings_page() {
-	// Check if the form was submitted
+	 // Check if the form was submitted
 	if ( isset( $_POST['page_id'] ) ) {
 		require_once plugin_dir_path( __FILE__ ) . '/export.php';
 
-		$page_id  = intval( $_POST['page_id'] ); // Get the page ID from the form
-		$defaults = array(
-			'content' => 'page',
-			'page_id' => $page_id,
-		);
+		$page_id = intval( $_POST['page_id'] ); // Get the page ID from the form
+		if ( 0 !== $page_id ) {
+			$defaults = array(
+				'content' => 'page',
+				'page_id' => $page_id,
+			);
+		} else {
+			$defaults = array(
+				'content' => 'all',
+			);
+		}
 
 		$defaults = apply_filters( 'export_args', $defaults );
 		dima_export_wp( $defaults );
@@ -40,16 +46,15 @@ function dima_export_page_settings_page() {
 	}
 	?>
 	<div class="wrap">
-		<h1>Export Page by ID Settings</h1>
-		<form method="post" id="export-form" action="?page=export-page-by-id" <label for="page_id">Enter the ID of the page that you want to export:</label><br>
-			<input type="hidden" name="page" value="export-page-by-id""><br>
-			<!-- <input type=" text" id="page_id" name="page_id"><br> -->
+		<h1>Export Page</h1>
+		<form method="post" id="export-form"
+		<label for="page_id">Select the page that you want to export:</label><br><br>
 			<?php
 			// Query to get all pages
 			$pages = get_pages();
 			// Start the <select> element
 			echo '<select name="page_id">';
-
+			echo '<option value="0">All content</option>';
 			// Loop through the pages and display each page name and ID in the <select> element
 			foreach ( $pages as $page ) {
 				echo '<option value="' . $page->ID . '">' . $page->post_title . '</option>';
