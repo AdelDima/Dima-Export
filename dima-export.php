@@ -12,18 +12,18 @@
 // Register the plugin settings page
 function export_page_by_id_register_settings_page() {
 	add_options_page(
-		'Export Page by ID', // Page title
-		'Export Page by ID', // Menu title
+		'Dima Export', // Page title
+		'Dima Export', // Menu title
 		'manage_options', // Capability
-		'export-page-by-id', // Menu slug
-		'export_page_by_id_settings_page' // Callback function
+		'dima-export', // Menu slug
+		'dima_export_page_settings_page' // Callback function
 	);
 }
 
 add_action( 'admin_menu', 'export_page_by_id_register_settings_page' );
 
 // Display the plugin settings page
-function export_page_by_id_settings_page() {
+function dima_export_page_settings_page() {
 	// Check if the form was submitted
 	if ( isset( $_POST['page_id'] ) ) {
 		require_once plugin_dir_path( __FILE__ ) . '/export.php';
