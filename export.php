@@ -82,7 +82,7 @@ function dima_export_wp( $args = array() ) {
 	if ( $args['page_id'] ) {
 		$wp_filename = $sitename . get_post_field( 'post_name', $args['page_id'] ) . '.xml';
 	} else {
-		$wp_filename = $sitename . 'WordPress.' . $date . '.xml';
+		$wp_filename = $sitename . 'all' . '.xml';
 	}
 
 	/**
